@@ -1,4 +1,3 @@
-
 CREATE TABLE blog_users (
 	id int not null auto_increment,
 	username varchar(64) not null default '',
@@ -9,17 +8,6 @@ CREATE TABLE blog_users (
 	primary key(id)
 ) ENGINE innodb CHARSET utf8;
 
-
-CREATE TABLE blog_tags (
-	id int not null auto_increment,
-	name varchar(64) not null default '',
-	created_time int not null default 0,
-	user_id int not null default 0,
-	primary key(id),
-	index(user_id)
-) ENGINE innodb CHARSET utf8;
-
-
 CREATE TABLE blog_categories (
 	id int not null auto_increment,
 	name varchar(64) not null default '',
@@ -29,7 +17,14 @@ CREATE TABLE blog_categories (
 	index(user_id)
 ) ENGINE innodb CHARSET utf8;
 
-
+CREATE TABLE blog_tags (
+	id int not null auto_increment,
+	name varchar(64) not null default '',
+	created_time int not null default 0,
+	user_id int not null default 0,
+	primary key(id),
+	index(user_id)
+) ENGINE innodb CHARSET utf8;
 
 CREATE TABLE blog_articles (
 	id int not null auto_increment,
@@ -44,15 +39,9 @@ CREATE TABLE blog_articles (
 	index(user_id)
 ) ENGINE innodb CHARSET utf8;
 
-
 CREATE TABLE blog_article_tag_map (
 	id int not null auto_increment,
 	article_id int not null default 0,
 	tag_id int not null default 0,
 	primary key(id)
 ) ENGINE innodb CHARSET utf8;
-
-
-ALTER TABLE blog_articles add sub_title varchar(128) not null default '' after title;
-ALTER TABLE blog_articles add views int not null default 0 after body;
-ALTER TABLE blog_categories add article_num int not null default 0 after name;
