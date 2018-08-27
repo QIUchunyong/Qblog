@@ -8,9 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>
-    {block name="title"}我的博客{/block}
-  </title>
+  <title> {block name="title"}我的博客{/block} </title>
   <!-- Bootstrap Core CSS -->
   <link href="__STATIC__/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome CSS -->
@@ -37,17 +35,17 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="./index.html">我的博客</a>
+        <a class="navbar-brand" href="{:url('homepage')}">我的博客</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="./index.html">首页</a></li>
-          <li><a href="./列表页.html">文章列表</a></li>
+          <li class=""><a href="{:url('homepage')}">首页</a></li>
+          <li><a href="{:url('article_index')}">文章列表</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {if $Think.session.user }
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{$Think.session.user.nickname} <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{$Think.session.user.username} <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="{:url('admin_category_index')}"><i class="fa fa-dashboard fa-fw"></i> 管理后台</a></li>
                 <li><a href="{:url('logout')}"><i class="fa fa-sign-out fa-fw"></i> 安全退出</a></li>
@@ -71,7 +69,7 @@
   <script src="__STATIC__/js/jquery.min.js"></script>
   <!-- Bootstrap Core JavaScript -->
   <script src="__STATIC__/libs/bootstrap/js/bootstrap.min.js"></script>
+  <script src="__STATIC__/js/frontend/load_data.js"></script>
   {block name="customscript"}{/block}
-  
 </body>
 </html>
